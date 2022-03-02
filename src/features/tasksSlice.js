@@ -7,7 +7,7 @@ export const tasksSlice = createSlice({
     },
     reducers: {
         addTask: (state, action) => {
-            state.value = [...state.value, action.payload]
+            state.value = [action.payload, ...state.value]
             console.log(state.value)
         },
         removeTask: (state, action) => {
@@ -18,16 +18,21 @@ export const tasksSlice = createSlice({
         },
         done: (state, action) => {
             console.log(action.payload)
-            let arr = [];
+            let done = [];
+            let todo = [];
             state.value.forEach(item => {
+                //set clicked item to done
                 item.id === action.payload.id ? item.done = action.payload.done : null
-                arr.push(item)
+                item.done ? done.push(item) : todo.push(item)
             });
-            state.value = arr;
+            state.value = [...todo, ...done];
+        },
+        load: (state) => {
+            state.value = JSON.parse(localStorage.getItem("todolist"))
         }
     }
 })
 
-export const { addTask, removeTask, done } = tasksSlice.actions
+export const { addTask, removeTask, done, load } = tasksSlice.actions
 
 export default tasksSlice.reducer
