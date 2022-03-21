@@ -5,7 +5,7 @@ import {
     addProject, removeProject, loadProject
 } from '../features/projectsSlice'
 import { setProjectId } from '../features/settingsSlice'
-import {loadList} from '../features/tasksSlice'
+import { loadList, removeProjectTasks } from '../features/tasksSlice'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -25,9 +25,11 @@ export default function Projects() {
 
     const handleAddProject = (e) => {
         e.preventDefault()
+        let genId = uuid()
 
-        dispatch(addProject({ id: uuid(), name: pname }))
+        dispatch(addProject({ id: genId, name: pname }))
         document.getElementById('myform').reset()
+        handleLoadList({id: genId})
     }
 
     const handleLoadList = (project) => {
@@ -36,6 +38,7 @@ export default function Projects() {
     }
     const remove = (project) => {
         dispatch(removeProject(project))
+        dispatch(removeProjectTasks(project))
     }
     return (
         <div className='d-flex flex-column align-items-center'>

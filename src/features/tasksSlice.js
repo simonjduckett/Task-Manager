@@ -39,10 +39,16 @@ export const tasksSlice = createSlice({
         },
         load: (state) => {
             state.value = JSON.parse(localStorage.getItem("todolist"))
+        },
+        removeProjectTasks: (state, action) => {
+            console.log('remove tasks atction')
+            console.log(action)
+            state.allTasks = state.allTasks.filter(item => item.projectId !== action.payload.id)
+            save(state.allTasks)
         }
     }
 })
 
-export const { addTask, removeTask, done, load, loadList } = tasksSlice.actions
+export const { addTask, removeTask, done, load, loadList, removeProjectTasks } = tasksSlice.actions
 
 export default tasksSlice.reducer
