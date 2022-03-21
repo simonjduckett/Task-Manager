@@ -27,10 +27,6 @@ export default function Projects() {
         document.getElementById('myform').reset()
     }
 
-    const save = () => {
-        localStorage.setItem("projects", JSON.stringify(projects));
-    }
-
     const handleLoadList = (project) => {
         dispatch(setProjectId(project))
         dispatch(loadList(project))

@@ -1,15 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+const save = (value) => {
+    localStorage.setItem("projects", JSON.stringify(value));
+}
+
 export const projectsSlice = createSlice({
     name: 'projects',
     initialState: {
-        value: []
+        value: localStorage.getItem("projects") ? JSON.parse(localStorage.getItem("projects")) : []
     },
     reducers: {
         //write these functions properly
         addProject: (state, action) => {
             state.value = [action.payload, ...state.value]
-            console.log(state.value)
+            save(state.value)
         },
         removeProject: (state, action) => {
             let x = window.confirm('really delete?');

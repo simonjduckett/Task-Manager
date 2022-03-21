@@ -38,10 +38,6 @@ export default function List() {
         dispatch(loadList({ id: projectId.currentProject }))
     }
 
-    const save = () => {
-        localStorage.setItem("todolist", JSON.stringify(allTasks));
-    }
-
     return (
         <div id='list' className='d-flex flex-column align-items-center'>
             <div >
@@ -73,12 +69,6 @@ export default function List() {
                     </ul>
                 </div>
             </div>
-                <div className='d-flex'>
-
-                    <button onClick={() => dispatch(load())} className='btn btn-primary flex-fill mx-4'>LOAD</button>
-
-                    <button onClick={() => save()} className='btn btn-primary flex-fill mx-4'>SAVE</button>
-                </div>
         </div>
     )
 }
