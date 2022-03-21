@@ -24,7 +24,7 @@ export default function List() {
         e.preventDefault()
 
         dispatch(addTask({ id: uuid(), projectId: projectId.currentProject, name: taskVal, done: false }))
-        document.getElementById('myform').reset()
+        document.getElementById('addform').reset()
         dispatch(loadList({id: projectId.currentProject}))
     }
 
@@ -41,7 +41,7 @@ export default function List() {
     return (
         <div id='list' className='d-flex flex-column align-items-center'>
             <div >
-                <form id='myform' onSubmit={handleAddTask} className='my-3'>
+                <form id='addform' onSubmit={handleAddTask} className='my-3'>
                     <div className='input-group'>
                         <input className='form-control' required type='text' id='taskName' placeholder='task name' onChange={handleChange} />
                     <div className='input-group-append'>

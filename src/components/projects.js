@@ -6,11 +6,14 @@ import {
 } from '../features/projectsSlice'
 import { setProjectId } from '../features/settingsSlice'
 import {loadList} from '../features/tasksSlice'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 //import { faCircleCheck, faTrash } from '@fortawesome/free-solid-svg-icons'
 
 export default function Projects() {
-    const projects = useSelector((state) => state.projects.value)
+    let projects = useSelector((state) => state.projects.value)
+
     const projectId = useSelector((state) => state.settings.value)
     const dispatch = useDispatch()
 
@@ -31,6 +34,9 @@ export default function Projects() {
         dispatch(setProjectId(project))
         dispatch(loadList(project))
     }
+    const remove = (project) => {
+        dispatch(removeProject(project))
+    }
     return (
         <div className='d-flex flex-column align-items-center'>
             <div >
@@ -47,8 +53,9 @@ export default function Projects() {
             {projects.map((project, i) => {
                 return (
                     <div onClick={() => handleLoadList(project)} key={i} className='card my-2 project' style={{maxWidth: '100px'}}>
-                        <div className='card-body'>
+                        <div className='card-body d-flex'>
                             {project.name}
+                            <div className='px-4'><span onClick={() => remove(project)}><FontAwesomeIcon icon={faTrash} /></span></div>
                         </div>
                     </div>
                 )

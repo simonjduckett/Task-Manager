@@ -12,13 +12,15 @@ export const projectsSlice = createSlice({
     reducers: {
         //write these functions properly
         addProject: (state, action) => {
-            state.value = [action.payload, ...state.value]
+            state.value = [...state.value, action.payload]
             save(state.value)
         },
         removeProject: (state, action) => {
+            console.log(action.payload)
             let x = window.confirm('really delete?');
             if (x) {
-                state.value = state.value.filter(item => item.id !== action.payload)
+                state.value = state.value.filter(item => item.id !== action.payload.id)
+                save(state.value)
             }
         },
         loadProject: (state) => {
