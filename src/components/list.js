@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { v4 as uuid } from 'uuid';
 import {
-    addTask, removeTask, done, load
+    addTask, removeTask, done, load, loadList
 } from '../features/tasksSlice'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleCheck, faTrash } from '@fortawesome/free-solid-svg-icons'
@@ -10,6 +10,8 @@ import { faCircle } from '@fortawesome/free-regular-svg-icons'
 
 export default function List() {
     const tasks = useSelector((state) => state.tasks.value)
+    const allTasks = useSelector((state) => state.tasks.allTasks)
+    const projectId = useSelector((state) => state.settings.value)
     const dispatch = useDispatch()
 
     const [taskVal, setTaskVal] = useState('')
@@ -21,16 +23,27 @@ export default function List() {
     const handleAddTask = (e) => {
         e.preventDefault()
 
-        dispatch(addTask({ id: uuid(), name: taskVal, done: false }))
+        dispatch(addTask({ id: uuid(), projectId: projectId.currentProject, name: taskVal, done: false }))
         document.getElementById('myform').reset()
+        dispatch(loadList({id: projectId.currentProject}))
+    }
+
+    const removeThisTask = (id) => {
+        dispatch(removeTask(id))
+        dispatch(loadList({ id: projectId.currentProject }))
+    }
+
+    const taskDone = (id, status) => {
+        dispatch(done({ id: id, done: status }))
+        dispatch(loadList({ id: projectId.currentProject }))
     }
 
     const save = () => {
-        localStorage.setItem("todolist", JSON.stringify(tasks));
+        localStorage.setItem("todolist", JSON.stringify(allTasks));
     }
 
     return (
-        <div className='d-flex flex-column align-items-center'>
+        <div id='list' className='d-flex flex-column align-items-center'>
             <div >
                 <form id='myform' onSubmit={handleAddTask} className='my-3'>
                     <div className='input-group'>
@@ -49,10 +62,10 @@ export default function List() {
                                 <li className='d-flex justify-content-between align-items-center border-bottom py-3' key={i}>
                                     <p className='mb-0' style={item.done ? {textDecoration: 'line-through'}: null}>{item.name}</p>
                                     <div>
-                                        <span className='px-4' style={{ cursor: 'poiner' }} onClick={() => dispatch(done({ id: item.id, done: !item.done }))}>
+                                        <span className='px-4' style={{ cursor: 'poiner' }} onClick={() => taskDone(item.id, !item.done)}>
                                             {item.done ? <FontAwesomeIcon color='green' icon={faCircleCheck} /> : <FontAwesomeIcon color='grey' icon={faCircle} />}
                                         </span>
-                                        <span className='text-danger' onClick={() => dispatch(removeTask(item.id))}><FontAwesomeIcon icon={faTrash} /></span>
+                                        <span className='text-danger' onClick={() => removeThisTask(item.id)}><FontAwesomeIcon icon={faTrash} /></span>
                                     </div>
                                 </li>
                             )

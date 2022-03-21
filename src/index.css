@@ -14,13 +14,21 @@ code {
     monospace;
 }
 
+#list .card {
+  min-width: 600px;
+}
+
 .card {
   background-color: #1f1f1f;
-  min-width: 600px;
 }
 
 .btn-primary {
   background-color: #03DAC6;
   border-color: #03DAC6;
   outline: #03DAC6;
+}
+
+.project:hover {
+  background-color: #333;
+  cursor: pointer;
 }
