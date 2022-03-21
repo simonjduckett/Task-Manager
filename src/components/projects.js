@@ -29,16 +29,21 @@ export default function Projects() {
 
         dispatch(addProject({ id: genId, name: pname }))
         document.getElementById('myform').reset()
+        document.getElementById('taskName').focus()
         handleLoadList({id: genId})
     }
 
     const handleLoadList = (project) => {
         dispatch(setProjectId(project))
         dispatch(loadList(project))
+        document.getElementById('taskName').focus()
     }
     const remove = (project) => {
-        dispatch(removeProject(project))
-        dispatch(removeProjectTasks(project))
+        let x = window.confirm('really delete?');
+        if (x) {
+            dispatch(removeProject(project))
+            dispatch(removeProjectTasks(project))
+        }
     }
     return (
         <div className='d-flex flex-column align-items-center'>
@@ -55,10 +60,10 @@ export default function Projects() {
             </div>
             {projects.map((project, i) => {
                 return (
-                    <div onClick={() => handleLoadList(project)} key={i} className='card my-2 project' style={{maxWidth: '100px'}}>
-                        <div className='card-body d-flex'>
+                    <div onClick={() => handleLoadList(project)} key={i} className='card my-2 project'>
+                        <div style={{minWidth: '300px'}} className='card-body d-flex'>
                             {project.name}
-                            <div className='px-4'><span onClick={() => remove(project)}><FontAwesomeIcon icon={faTrash} /></span></div>
+                            <div className='ml-auto'><span onClick={() => remove(project)}><FontAwesomeIcon icon={faTrash} /></span></div>
                         </div>
                     </div>
                 )

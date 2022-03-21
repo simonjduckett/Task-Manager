@@ -29,8 +29,11 @@ export default function List() {
     }
 
     const removeThisTask = (id) => {
-        dispatch(removeTask(id))
-        dispatch(loadList({ id: projectId.currentProject }))
+        let x = window.confirm('really delete?');
+        if (x) {
+            dispatch(removeTask(id))
+            dispatch(loadList({ id: projectId.currentProject }))
+        }
     }
 
     const taskDone = (id, status) => {

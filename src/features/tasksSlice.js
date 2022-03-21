@@ -19,11 +19,8 @@ export const tasksSlice = createSlice({
             save(state.allTasks)
         },
         removeTask: (state, action) => {
-            let x = window.confirm('really delete?');
-            if(x) {
-                state.allTasks = state.allTasks.filter(item => item.id !== action.payload)
-                save(state.allTasks)
-            }
+            state.allTasks = state.allTasks.filter(item => item.id !== action.payload)
+            save(state.allTasks)
         },
         done: (state, action) => {
             console.log(action.payload)

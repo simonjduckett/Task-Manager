@@ -17,11 +17,8 @@ export const projectsSlice = createSlice({
         },
         removeProject: (state, action) => {
             console.log(action.payload)
-            let x = window.confirm('really delete?');
-            if (x) {
-                state.value = state.value.filter(item => item.id !== action.payload.id)
-                save(state.value)
-            }
+            state.value = state.value.filter(item => item.id !== action.payload.id)
+            save(state.value)
         },
         loadProject: (state) => {
             state.value = JSON.parse(localStorage.getItem("todolist"))
