@@ -46,8 +46,8 @@ export default function Projects() {
         }
     }
     return (
-        <div className='d-flex flex-column align-items-center'>
-            <div >
+        <div className='d-flex flex-column align-items-start'>
+            <div className='topSection'>
                 <form id='myform' onSubmit={handleAddProject} className='my-3'>
                     <div className='input-group'>
                         <input className='form-control' required type='text' id='projectName' placeholder='Project name' onChange={handleChange} />
@@ -59,8 +59,10 @@ export default function Projects() {
                 
             </div>
             {projects.map((project, i) => {
+                let active = {}
+                project.id == projectId.currentProject ? active = { backgroundColor: '#333'} : null;
                 return (
-                    <div onClick={() => handleLoadList(project)} key={i} className='card my-2 project'>
+                    <div onClick={() => handleLoadList(project)} key={i} className='card my-2 project' style={active}>
                         <div style={{minWidth: '300px'}} className='card-body d-flex'>
                             {project.name}
                             <div className='ml-auto'><span onClick={() => remove(project)}><FontAwesomeIcon icon={faTrash} /></span></div>

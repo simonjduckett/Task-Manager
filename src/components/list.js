@@ -43,7 +43,7 @@ export default function List() {
 
     return (
         <div id='list' className='d-flex flex-column align-items-center'>
-            <div >
+            <div className='topSection'>
                 <form id='addform' onSubmit={handleAddTask} className='my-3'>
                     <div className='input-group'>
                         <input className='form-control' required type='text' id='taskName' placeholder='task name' onChange={handleChange} />
@@ -60,12 +60,12 @@ export default function List() {
                             return (
                                 <li className='d-flex justify-content-between align-items-center border-bottom py-3' key={i}>
                                     <p className='mb-0' style={item.done ? {textDecoration: 'line-through'}: null}>{item.name}</p>
-                                    <div>
+                                    <div className='ml-auto'>
                                         <span className='px-4' style={{ cursor: 'poiner' }} onClick={() => taskDone(item.id, !item.done)}>
                                             {item.done ? <FontAwesomeIcon color='green' icon={faCircleCheck} /> : <FontAwesomeIcon color='grey' icon={faCircle} />}
                                         </span>
-                                        <span className='text-danger' onClick={() => removeThisTask(item.id)}><FontAwesomeIcon icon={faTrash} /></span>
                                     </div>
+                                    <span className='text-danger' onClick={() => removeThisTask(item.id)}><FontAwesomeIcon icon={faTrash} /></span>
                                 </li>
                             )
                         })}

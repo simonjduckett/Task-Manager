@@ -15,7 +15,7 @@ code {
 }
 
 #list .card {
-  min-width: 600px;
+  min-width: 100%;
 }
 
 .card {
@@ -31,4 +31,13 @@ code {
 .project:hover {
   background-color: #333;
   cursor: pointer;
+}
+.border-right {
+    border-right: 1px solid #333 !important;
+}
+
+.topSection {
+    min-height: 80px;
+    display: flex;
+    align-items: center;
 }
