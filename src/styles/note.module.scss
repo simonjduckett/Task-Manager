@@ -1,0 +1,21 @@
+.note {
+    position: relative;
+    &:hover {
+        span {
+            opacity: 1;
+        }
+    }
+    p {
+        background-color: #3C3C3E;
+        padding: 10px;
+        border-radius: 8px;
+        color: #fff;
+    }
+    span {
+        position: absolute;
+        right: -2px;
+        top: -5px;
+        opacity: 0;
+        transition: all .5s;
+    }
+}

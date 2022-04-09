@@ -1,5 +1,6 @@
 import './App.css';
 import List from './components/list'
+import Notes from './components/notes';
 import Projects from './components/projects'
 
 function App() {
@@ -7,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <div className='container-fluid'>
-        <h2>FMX To do</h2>
+        <h2>To do</h2>
         <hr style={{backgroundColor: '#333'}} />
         <div className='row'>
           <div className='col-3 border-right'>
@@ -17,8 +18,7 @@ function App() {
             <List />
           </div>
           <div className='col-3'>
-            <div className='topSection'></div>
-            <textarea rows="20" cols="50" style={{ backgroundColor: '#1F1F1F', color: '#fff', padding: '20px', borderRadius: '5px'}} placeholder='notes'></textarea>
+            <Notes />
           </div>
         </div>
       </div>

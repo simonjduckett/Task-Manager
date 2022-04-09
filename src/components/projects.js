@@ -6,10 +6,12 @@ import {
 } from '../features/projectsSlice'
 import { setProjectId } from '../features/settingsSlice'
 import { loadList, removeProjectTasks } from '../features/tasksSlice'
+import { removeProjectNotes } from '../features/notesSlice'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 //import { faCircleCheck, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { loadNotes } from '../features/notesSlice'
 
 export default function Projects() {
     let projects = useSelector((state) => state.projects.value)
@@ -36,6 +38,7 @@ export default function Projects() {
     const handleLoadList = (project) => {
         dispatch(setProjectId(project))
         dispatch(loadList(project))
+        dispatch(loadNotes(project))
         document.getElementById('taskName').focus()
     }
     const remove = (project) => {
@@ -43,6 +46,7 @@ export default function Projects() {
         if (x) {
             dispatch(removeProject(project))
             dispatch(removeProjectTasks(project))
+            dispatch(removeProjectNotes(project))
         }
     }
     return (
