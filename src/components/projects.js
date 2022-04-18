@@ -49,9 +49,13 @@ export default function Projects() {
             dispatch(removeProjectNotes(project))
         }
     }
+
+    const slideAway = () => {
+        document.getElementById('projectsCol').classList.toggle('moveleft')
+    }
     return (
         <div className='d-flex flex-column align-items-start'>
-            <FontAwesomeIcon icon={faArrowLeft} />
+            <FontAwesomeIcon onClick={slideAway} icon={faArrowLeft} />
             <div className='topSection'>
                 <form id='myform' onSubmit={handleAddProject} className='my-3'>
                     <div className='input-group'>

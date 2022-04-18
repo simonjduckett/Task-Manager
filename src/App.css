@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+#projectsCol {
+  transition: all;
+  left: 0;
+}
+
+.moveleft {
+  position: absolute !important;
+  left: -100% !important;
+}

@@ -11,7 +11,7 @@ function App() {
         <h2>To do</h2>
         <hr style={{backgroundColor: '#333'}} />
         <div className='row'>
-          <div className='col-3 border-right'>
+          <div id='projectsCol' className='col-3 border-right'>
             <Projects />
           </div>
           <div className='col-6'>
