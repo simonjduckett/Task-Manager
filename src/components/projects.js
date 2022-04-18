@@ -8,7 +8,7 @@ import { setProjectId } from '../features/settingsSlice'
 import { loadList, removeProjectTasks } from '../features/tasksSlice'
 import { removeProjectNotes } from '../features/notesSlice'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faTrash, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 //import { faCircleCheck, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { loadNotes } from '../features/notesSlice'
@@ -51,6 +51,7 @@ export default function Projects() {
     }
     return (
         <div className='d-flex flex-column align-items-start'>
+            <FontAwesomeIcon icon={faArrowLeft} />
             <div className='topSection'>
                 <form id='myform' onSubmit={handleAddProject} className='my-3'>
                     <div className='input-group'>
