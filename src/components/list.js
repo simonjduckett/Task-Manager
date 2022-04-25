@@ -44,7 +44,7 @@ export default function List() {
 
     return (
         <div id='list' className='d-flex flex-column align-items-center'>
-            <TopSection handleAdd={handleAddTask} handleChange={handleChange} />
+            <TopSection formid='addform' handleAdd={handleAddTask} handleChange={handleChange} />
             <div className='card'>
                 <div className='card-body'>
                     <ul className='pl-0'>

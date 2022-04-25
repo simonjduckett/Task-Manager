@@ -35,9 +35,3 @@ code {
 .border-right {
     border-right: 1px solid #333 !important;
 }
-
-.topSection {
-    min-height: 80px;
-    display: flex;
-    align-items: center;
-}
