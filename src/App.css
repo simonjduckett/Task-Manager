@@ -46,3 +46,9 @@
   position: absolute !important;
   left: -100% !important;
 }
+
+.form-control:focus {
+  outline: none !important;
+  border-color: unset !important;
+  box-shadow: none;
+}

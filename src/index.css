@@ -35,3 +35,7 @@ code {
 .border-right {
     border-right: 1px solid #333 !important;
 }
+
+h2 {
+  margin-bottom: 0;
+}

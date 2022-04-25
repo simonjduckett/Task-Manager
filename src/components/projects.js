@@ -56,7 +56,12 @@ export default function Projects() {
     return (
         <div className='d-flex flex-column align-items-start'>
             <FontAwesomeIcon onClick={slideAway} icon={faArrowLeft} />
-            <TopSection formid='myform' handleAdd={handleAddProject} handleChange={handleChange} />
+            <TopSection 
+                formid='myform' 
+                handleAdd={handleAddProject} 
+                handleChange={handleChange} 
+                placeholder='Project name' 
+            />
             {projects.map((project, i) => {
                 let active = {}
                 project.id == projectId.currentProject ? active = { backgroundColor: '#333'} : null;

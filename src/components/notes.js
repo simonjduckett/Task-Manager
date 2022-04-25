@@ -28,7 +28,7 @@ const Notes = () => {
 
     return ( 
         <section className={styles.notes}>
-            <TopSection handleAdd={handleAddNote} handleChange={handleChange} />
+            <TopSection handleAdd={handleAddNote} handleChange={handleChange} placeholder='note' />
             <div className={styles.projectNotes}>
                 {notes.map((note, i) => {
                     return (

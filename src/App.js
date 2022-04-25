@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <div className='container-fluid'>
-        <h2>To do</h2>
+        <h2 style={{marginTop: '10px'}}>Task Manager</h2>
         <hr style={{backgroundColor: '#333'}} />
         <div className='row'>
           <div id='projectsCol' className='col-3 border-right'>
