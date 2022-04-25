@@ -4,14 +4,11 @@ import { v4 as uuid } from 'uuid';
 import {
     addTask, removeTask, done, load, loadList
 } from '../features/tasksSlice'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleCheck, faTrash } from '@fortawesome/free-solid-svg-icons'
-import { faCircle } from '@fortawesome/free-regular-svg-icons'
 import TopSection from './TopSection';
+import Task from './Task';
 
 export default function List() {
     const tasks = useSelector((state) => state.tasks.value)
-    const allTasks = useSelector((state) => state.tasks.allTasks)
     const projectId = useSelector((state) => state.settings.value)
     const dispatch = useDispatch()
 
@@ -29,13 +26,7 @@ export default function List() {
         dispatch(loadList({id: projectId.currentProject}))
     }
 
-    const removeThisTask = (id) => {
-        let x = window.confirm('really delete?');
-        if (x) {
-            dispatch(removeTask(id))
-            dispatch(loadList({ id: projectId.currentProject }))
-        }
-    }
+    
 
     const taskDone = (id, status) => {
         dispatch(done({ id: id, done: status }))
@@ -56,15 +47,13 @@ export default function List() {
                     <ul className='pl-0'>
                         {tasks.map((item, i) => {
                             return (
-                                <li className='d-flex justify-content-between align-items-center border-bottom py-3' key={i}>
-                                    <p className='mb-0' style={item.done ? {textDecoration: 'line-through'}: null}>{item.name}</p>
-                                    <div className='ml-auto'>
-                                        <span className='px-4' style={{ cursor: 'poiner' }} onClick={() => taskDone(item.id, !item.done)}>
-                                            {item.done ? <FontAwesomeIcon color='green' icon={faCircleCheck} /> : <FontAwesomeIcon color='grey' icon={faCircle} />}
-                                        </span>
-                                    </div>
-                                    <span className='text-danger' onClick={() => removeThisTask(item.id)}><FontAwesomeIcon icon={faTrash} /></span>
-                                </li>
+                                <Task
+                                    key={i}
+                                    done={item.done}
+                                    name={item.name}
+                                    itemid={item.id}
+                                    taskDone={taskDone}
+                                />
                             )
                         })}
                     </ul>
