@@ -28,7 +28,13 @@ const Notes = () => {
 
     return ( 
         <section className={styles.notes}>
-            <TopSection handleAdd={handleAddNote} handleChange={handleChange} placeholder='note' />
+            <TopSection 
+                handleAdd={handleAddNote} 
+                handleChange={handleChange} 
+                placeholder='note'
+                formid='addnoteform'
+                inputid='Note'
+            />
             <div className={styles.projectNotes}>
                 {notes.map((note, i) => {
                     return (
