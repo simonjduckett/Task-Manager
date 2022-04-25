@@ -4,6 +4,7 @@ import { v4 as uuid } from 'uuid';
 import { loadNotes, addNote, removeNote } from '../features/notesSlice'
 import styles from '../styles/notes.module.scss'
 import Note from './note';
+import TopSection from './TopSection';
 
 const Notes = () => {
     const notes = useSelector((state) => state.notes.projectNotes)
@@ -27,16 +28,7 @@ const Notes = () => {
 
     return ( 
         <section className={styles.notes}>
-            <div className='topSection'>
-                <form id='addnoteform' onSubmit={handleAddNote} className='my-3'>
-                    <div className='input-group'>
-                        <input className='form-control' required type='text' id='Note' placeholder='note' onChange={handleChange} />
-                        <div className='input-group-append'>
-                            <input className='btn btn-primary' type='submit' value='Add Note' />
-                        </div>
-                    </div>
-                </form>
-            </div>
+            <TopSection handleAdd={handleAddNote} handleChange={handleChange} />
             <div className={styles.projectNotes}>
                 {notes.map((note, i) => {
                     return (
@@ -49,7 +41,3 @@ const Notes = () => {
 }
  
 export default Notes;
-
-//state for note objects that are linked to each project
-//need component that represents each note made
-//

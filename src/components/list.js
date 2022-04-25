@@ -7,6 +7,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleCheck, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { faCircle } from '@fortawesome/free-regular-svg-icons'
+import TopSection from './TopSection';
 
 export default function List() {
     const tasks = useSelector((state) => state.tasks.value)
@@ -43,16 +44,7 @@ export default function List() {
 
     return (
         <div id='list' className='d-flex flex-column align-items-center'>
-            <div className='topSection'>
-                <form id='addform' onSubmit={handleAddTask} className='my-3'>
-                    <div className='input-group'>
-                        <input className='form-control' required type='text' id='taskName' placeholder='task name' onChange={handleChange} />
-                    <div className='input-group-append'>
-                        <input className='btn btn-primary' type='submit' value='Add Task'/>
-                    </div>
-                    </div>
-                </form>
-            </div>
+            <TopSection handleAdd={handleAddTask} handleChange={handleChange} />
             <div className='card'>
                 <div className='card-body'>
                     <ul className='pl-0'>

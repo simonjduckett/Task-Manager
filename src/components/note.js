@@ -14,7 +14,7 @@ const Note = (props) => {
     }
 
     return ( 
-        <div className={styles.note} key={props.key}>
+        <div className={styles.note}>
             <p>{props.note}</p>
             <span onClick={() => removeThisNote(props.id)}>
                 <FontAwesomeIcon icon={faCircleXmark} />
