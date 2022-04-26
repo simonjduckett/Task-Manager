@@ -9,8 +9,8 @@ function App() {
   return (
     <div className="App">
       <div className='container-fluid'>
-        <h2 style={{marginTop: '10px'}}>Task Manager</h2>
-        <hr style={{backgroundColor: '#333'}} />
+        <h2 className='py-2'>Task Manager</h2>
+        <hr style={{backgroundColor: '#333', margin: '0px'}} />
         <Toolbar />
         <div className='row'>
           <div id='projectsCol' className='col-2 border-right'>
