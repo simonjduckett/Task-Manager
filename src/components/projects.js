@@ -7,8 +7,6 @@ import {
 import { setProjectId } from '../features/settingsSlice'
 import { loadList, removeProjectTasks } from '../features/tasksSlice'
 import { removeProjectNotes } from '../features/notesSlice'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { loadNotes } from '../features/notesSlice'
 import TopSection from './TopSection';
 import Project from './Project';
@@ -50,12 +48,9 @@ export default function Projects() {
         }
     }
 
-    const slideAway = () => {
-        document.getElementById('projectsCol').classList.toggle('moveleft')
-    }
+    
     return (
         <div className='d-flex flex-column align-items-start'>
-            <FontAwesomeIcon onClick={slideAway} icon={faArrowLeft} />
             <TopSection 
                 formid='myform' 
                 handleAdd={handleAddProject} 

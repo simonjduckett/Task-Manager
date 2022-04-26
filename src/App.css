@@ -38,13 +38,13 @@
 }
 
 #projectsCol {
-  transition: all;
-  left: 0;
+  transition: all .6s;
+  overflow: hidden;
+  flex-basis: auto;
 }
 
 .moveleft {
-  position: absolute !important;
-  left: -100% !important;
+  width: 0px;
 }
 
 .form-control:focus {
