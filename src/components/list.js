@@ -21,7 +21,7 @@ export default function List() {
     const handleAddTask = (e) => {
         e.preventDefault()
 
-        dispatch(addTask({ id: uuid(), projectId: projectId.currentProject, name: taskVal, done: false }))
+        dispatch(addTask({ id: uuid(), projectId: projectId.currentProject, name: taskVal, done: false, time: new Date().toLocaleString() }))
         document.getElementById('addform').reset()
         dispatch(loadList({id: projectId.currentProject}))
     }
@@ -53,6 +53,7 @@ export default function List() {
                                     name={item.name}
                                     itemid={item.id}
                                     taskDone={taskDone}
+                                    item={item}
                                 />
                             )
                         })}
