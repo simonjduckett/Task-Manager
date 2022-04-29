@@ -49,9 +49,6 @@ export default function List() {
                             return (
                                 <Task
                                     key={i}
-                                    done={item.done}
-                                    name={item.name}
-                                    itemid={item.id}
                                     taskDone={taskDone}
                                     item={item}
                                 />
