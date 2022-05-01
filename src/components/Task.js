@@ -29,7 +29,7 @@ const Task = (props) => {
                         {props.item.done ? <FontAwesomeIcon color='green' icon={faCircleCheck} /> : <FontAwesomeIcon color='grey' icon={faCircle} />}
                     </span>
                 </div>
-                <span className='text-danger' onClick={() => removeThisTask(props.itemid)}><FontAwesomeIcon icon={faTrash} /></span>
+                <span className='text-danger' onClick={() => removeThisTask(props.item.id)}><FontAwesomeIcon icon={faTrash} /></span>
             </li>
      );
 }
