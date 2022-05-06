@@ -16,3 +16,5 @@ Launch local node server: npm start
 Commit: git commit -a -m 'commit msg'
 
 Push to github: git push origin main
+
+Enjoy!
