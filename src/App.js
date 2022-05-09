@@ -1,4 +1,5 @@
 import './App.css';
+import './styles/themes.scss';
 import List from './components/list'
 import Notes from './components/notes';
 import Projects from './components/projects'

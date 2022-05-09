@@ -1,0 +1,13 @@
+.light {
+    background: #fff;
+    color: #333;
+    .card {
+        background: #F8F9FA;
+    }
+    .form-control {
+        color: #333 !important;
+        &:focus {
+            color: #333 !important;
+        }
+    }
+}
