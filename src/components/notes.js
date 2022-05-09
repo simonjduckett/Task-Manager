@@ -27,7 +27,7 @@ const Notes = () => {
     }
 
     return ( 
-        <section className={styles.notes}>
+        <section id='notes' className={styles.notes}>
             <TopSection 
                 handleAdd={handleAddNote} 
                 handleChange={handleChange} 
