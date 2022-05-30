@@ -8,7 +8,7 @@ export const notesSlice = createSlice({
     name: 'notes',
     initialState: {
         projectNotes: [],
-        allNotes: localStorage.getItem("notes") != 'undefined' ? JSON.parse(localStorage.getItem("notes")) : []
+        allNotes: localStorage.getItem("notes") && localStorage.getItem("notes") != 'undefined' ? JSON.parse(localStorage.getItem("notes")) : []
     },
     reducers: {
         loadNotes: (state, action) => {
