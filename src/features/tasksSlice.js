@@ -8,7 +8,7 @@ export const tasksSlice = createSlice({
     name: 'tasks',
     initialState: {
         value: [],
-        allTasks: localStorage.getItem("todolist") ? JSON.parse(localStorage.getItem("todolist")) : []
+        allTasks: localStorage.getItem("todolist") ? JSON.parse(localStorage.getItem("todolist")) : [{ done: false, id: 324, name: 'Add more tasks', projectId: 23432, time: ' '}]
     },
     reducers: {
         loadList: (state, action) => {

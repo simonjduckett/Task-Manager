@@ -26,9 +26,13 @@
     }
     .project {
         color: #333 !important;
+        &:hover {
+            background-color: #dcdcdc;
+            cursor: pointer;
+        }
     }
     .project.active {
-        background-color: #333;
-        color: #fff !important;
+        background-color: #dcdcdc;
+        color: #333 !important;
     }
 }

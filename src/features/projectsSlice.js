@@ -7,7 +7,7 @@ const save = (value) => {
 export const projectsSlice = createSlice({
     name: 'projects',
     initialState: {
-        value: localStorage.getItem("projects") ? JSON.parse(localStorage.getItem("projects")) : []
+        value: localStorage.getItem("projects") ? JSON.parse(localStorage.getItem("projects")) : [{id: 23432, name: 'First Project'}]
     },
     reducers: {
         //write these functions properly
