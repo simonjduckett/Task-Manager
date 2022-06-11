@@ -58,8 +58,8 @@ export default function Projects() {
                 placeholder='Project name' 
             />
             {projects.map((project, i) => {
-                let active = {}
-                project.id == projectId.currentProject ? active = { backgroundColor: '#333'} : null;
+                let active = false
+                project.id == projectId.currentProject ? active = true : null;
                 return (
                     <Project 
                         key={i} 

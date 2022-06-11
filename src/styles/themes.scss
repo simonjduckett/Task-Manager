@@ -24,4 +24,11 @@
             }
         }
     }
+    .project {
+        color: #333 !important;
+    }
+    .project.active {
+        background-color: #333;
+        color: #fff !important;
+    }
 }
